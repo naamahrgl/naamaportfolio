@@ -47,6 +47,6 @@ export const projects = [
     url: 'https://gfsourdough.netlify.app/he/',
     description: 'A digital course site and store for a gluten-free sourdough course, with a custom design, user accounts and online sales. Still in progress.',
     zoom: 2.4,
-        tag: 'Design + dev + e-commerce', // add to Hannah the gluten-free sourdough
+        tag: 'Design + dev + authentication + digital-course + e-commerce', // add to Hannah the gluten-free sourdough
   },
 ];
