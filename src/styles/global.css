@@ -1,0 +1,191 @@
+/* ---------------------------------------------------------
+   Tokens
+--------------------------------------------------------- */
+:root {
+  --paper: #eff1ef;
+  --paper-raised: #e3e6e2;
+  --ink: #151a17;
+  --ink-soft: #565f5a;
+  --accent: #2f6f63;
+  --line: #cbd2cb;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --content-max: 78rem;
+  --gutter: clamp(1.25rem, 5vw, 3.5rem);
+}
+
+/* ---------------------------------------------------------
+   Reset
+--------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------
+   Layout shell
+--------------------------------------------------------- */
+.wrap {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------------------------------------------------------
+   Masthead
+--------------------------------------------------------- */
+.masthead {
+  padding: clamp(3rem, 9vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4rem);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+}
+
+.who h1 {
+  font-family: var(--font-display);
+  font-weight: 560;
+  font-size: clamp(2.4rem, 6vw, 4.1rem);
+  line-height: 1.02;
+  margin: 0 0 0.55rem;
+  letter-spacing: -0.01em;
+}
+
+.who .role {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.statement a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.statement a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.statement strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   Work section
+--------------------------------------------------------- */
+.work {
+  padding: clamp(1rem, 4vw, 2rem) 0 clamp(3rem, 8vw, 5.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.work-label {
+  margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+/* ---------------------------------------------------------
+   Contact / footer
+--------------------------------------------------------- */
+.contact {
+  border-top: 1px solid var(--line);
+  padding: clamp(2rem, 6vw, 3.5rem) 0 clamp(2.5rem, 6vw, 4rem);
+}
+
+.contact-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem 2.5rem;
+}
+
+.contact-label {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 2rem;
+  font-size: 1.05rem;
+}
+
+.contact-links a {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.15rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.contact-links a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+@media (max-width: 720px) {
+  .masthead {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .statement {
+    max-width: 44ch;
+  }
+
+  .contact-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+  }
+}

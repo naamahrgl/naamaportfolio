@@ -1,0 +1,66 @@
+---
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects.js';
+import '../styles/global.css';
+
+const name = 'Naama Hargil';
+const role = 'Math BSc graduate, working across web development, design and data analysis';
+const statementIntro =
+"These are a few websites I've designed and built. Astro is my go-to platform for fast, high-performing, and flexible sites — though my tech toolkit runs wider, into data pipelines, APIs, analytics and large-scale data work. More on that in my";
+const email = 'naama.hargil@gmail.com';
+const phoneDisplay = '054-644-1215';
+const phoneHref = 'https://wa.me/972546441215';
+const cvHref = '/Naama Hargil CV26c.pdf';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{name} — Portfolio</title>
+    <meta name="description" content={statementIntro} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,460..600&family=Public+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="masthead">
+        <div class="who">
+          <h1>{name}</h1>
+          <p class="role">{role}</p>
+        </div>
+<p class="statement">
+  {statementIntro}
+  <a href={cvHref} target="_blank" rel="noopener noreferrer">CV</a>.
+</p>
+      </header>
+    </div>
+
+    <main class="wrap">
+      <section class="work" aria-label="Selected work">
+        <p class="work-label">Selected work</p>
+        <div class="grid">
+          {projects.map((project) => (
+            <ProjectCard {...project} />
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <footer class="contact">
+      <div class="wrap contact-inner">
+        <p class="contact-label">Talk to me</p>
+        <div class="contact-links">
+          <a href={`mailto:${email}`}>{email}</a>
+          <a href={phoneHref}>{phoneDisplay}</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
